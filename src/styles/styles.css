@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+/* Resets */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Img Reset */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Google Fonts 
+
+font-family: 'Fira Mono', monospace;
+font-family: 'Ubuntu', sans-serif;
+
+*/
+
+/* Body */
+body {
+  margin: 0;
+  background-color: silver;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* Type Styles */
+h1,
+h2,
+nav a {
+  font-family: "Fira Mono", monospace;
+  font-weight: 400;
+  margin-left: 10px;
+}
+p {
+  line-height: 1.4;
+  font-size: 1.4em;
+}
+
+.wrapper {
+    background-color: #fff;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .top-bar {
+    background-color: rgb(33, 33, 59);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 60px auto;
+    grid-template-areas:
+      "logo menu"
+      "nav nav";
+  }
+  .top-bar h1 {
+    margin-right: 20px;
+    grid-area: logo;
+    font-weight: bold;
+  }
+  .btn-menu {
+    grid-area: menu;
+    text-align: right;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+  nav {
+    grid-area: nav;
+    display: none;
+    font-weight: bold;
+    color: white;
+  }
+  .show nav {
+    display: block;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav a{
+    display: block;
+    line-height: 50px;
+    font-size: 1.2em;
+    padding-left: 15px;
+  }
+  nav a:hover,
+  nav a:focus,
+  nav a:active {
+    background-color: rgba(white, 0.3);
+}
+
+
+/* Footer */
+footer {
+    background-color: #b3701e;
+    color: white;
+    padding: 15px;
+    text-align: center;
+  }
+  footer a {
+    color: white;
+  }
+
+
+@media (min-width: 600px) {
+    .btn-menu {
+    display: none;
+    }
+    .top-bar {
+    grid-template-columns: 1fr 390px;
+    grid-template-areas: "logo nav";
+    }
+    nav {
+    display: block;
+    }
+    nav ul {
+    display: flex;
+    }
+    nav li {
+    flex: 1;
+    }
+    nav a {
+    padding: 0;
+    text-align: center;
+    }
+    nav a:hover,
+    nav a:focus,
+    nav a:active {
+      background-color: rgba(rgb(90, 62, 62), 0.3);
+  }
+}
