@@ -5,7 +5,7 @@ function Header() {
     return (
         <header className="top-bar">
             <h1><Link to='/'>Movie Mania</Link></h1>
-            <a href="#menu" class="btn-menu" id="btn-menu">Menu</a>
+            <a href="#menu" className="btn-menu" id="btn-menu">Menu</a>
            <Nav />
         </header>
     )

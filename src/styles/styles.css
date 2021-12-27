@@ -196,7 +196,7 @@ header a {
 /* Movie*/
 .movie-section{
     padding: 20px;
-    max-width: 800px;
+    max-width: 600px;
     margin:0 auto;
 }
 
@@ -261,6 +261,12 @@ footer {
 .bar-container{
     display: flex;
     justify-content:space-between;
+}
+
+/* Movie*/
+.movies-container{
+    grid-template-columns: repeat(3, 1fr);
+
 }
 
 }

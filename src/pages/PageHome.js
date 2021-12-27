@@ -47,7 +47,7 @@ const PageHome = () => {
     function createForm() {
         return (
             <div className="select-container">
-                <label for="displays">Sort by </label>
+                <label htmlFor="displays">Sort by </label>
                 <select className="select-input" name="displays" id="displays" value={selection} onChange={handleChange} >
                     <option value="popular">Popular</option>
                     <option value="top_rated">Top Rated</option>
