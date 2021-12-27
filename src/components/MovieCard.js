@@ -15,10 +15,11 @@ function MovieCard({ movie, path, isLink = false }) {
             <div className="movie-info">
                 <p ><b>Title: </b>{movie.title}</p>
                 <p><b>Release Date: </b>{movie.release_date}</p>
-                <p><b>Description: </b>{movie.overview}</p>
                 <p><b>Rating: </b>{movie.vote_average}</p>
-                {isLink && <Link to={`${path}${movie.id}`}>More Info</Link>}
+                <p className="movie-overview"><b>Description: </b>{movie.overview}</p>
             </div>
+            {isLink && <Link className="more-info" to={`${path}${movie.id}` } >More Info</Link>}
+
         </div>
     )
 }
