@@ -8,27 +8,24 @@ import whiteHeart from '../images//heart-492.png';
 import redHeart from '../images/red-heart.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFav, deleteFav } from '../features/fav/favSlice';
+import { selectMovie } from '../features/movie/movieSlice';
 
 const PageIndividualMovie = () => {
-    const [error, setError] = useState(null);
-    const [movie, setMovie] = useState(null)
+    
     const { id } = useParams();
     const favs = useSelector((state) => state.fav.favs)
+    const filteredMovies = useSelector((state) => state.movie.filteredMovies)
+
     console.log(favs)
     const dispatch = useDispatch()
+    const movie = useSelector((state) => state.movie.selectedMovie)
 
     useEffect(() => {
         document.title = `${appTitle} - Individual Movie ${id}`;
+        let found = getMovie(id,filteredMovies) || getMovie(id, favs)
+        dispatch(selectMovie(found))
     }, []);
-    useEffect(async () => {
-        try {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=d6441bcd0c7210bd6baec2676da16bd1`)
-            const movie = await response.json()
-            setMovie(movie)
-        } catch (e) {
-            setError(e)
-        }
-    }, []);
+    
     function inFav(id, arr) {
         console.log(id)
         console.log(arr)
@@ -36,7 +33,9 @@ const PageIndividualMovie = () => {
         console.log(index)
         return index
     }
-
+    function getMovie(id, arr) {
+        return arr.find(item => item.id == id)
+    }
     if (isNaN(id) || (id % 1 !== 0) || id < 1) {
         return (
             <Navigate to="/" replace={true} />
@@ -47,7 +46,6 @@ const PageIndividualMovie = () => {
 
     return (
         <main>
-            {error ? <div>Error: {error.message}</div> :
                 <section className="movie-section">
                     {movie != null &&
                         <div>
@@ -69,7 +67,6 @@ const PageIndividualMovie = () => {
                         </div>
                     }
                 </section>
-            }
         </main>
     );
 }

@@ -11,7 +11,7 @@ import { baseUrl } from '../globals/globals';
 const PageHome = () => {
     const [error, setError] = useState(null);
 
-    const selection = useSelector((state) => state.movie.section)
+    const selection = useSelector((state) => state.movie.selection)
     const url = useSelector((state) => state.movie.url)
     const value = useSelector((state) => state.movie.value)
     const filteredMovies = useSelector((state) => state.movie.filteredMovies)
@@ -82,8 +82,7 @@ const PageHome = () => {
                         {createForm()}
                         <SearchBar 
                             placeholder="filter by title"
-                            onChange={(e)=>{
-                                            dispatch(filterMovie(e.target.value))
+                            onChange={(e)=>{ dispatch(filterMovie(e.target.value))
                             }}
                             onClick={cancelfiltering}
                             value={value}
