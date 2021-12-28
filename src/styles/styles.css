@@ -58,6 +58,7 @@ h2{
 .wrapper {
     background-color: #fff;
     max-width: 1980px;
+    min-width: 320px;
     margin: 0 auto;
   }
 
@@ -95,9 +96,6 @@ header a {
     font-weight: bold;
     color: white;
   }
-  .show nav {
-    display: block;
-  }
   nav ul {
     list-style: none;
     margin: 0;
@@ -105,15 +103,15 @@ header a {
   }
   nav a{
     display: block;
-    line-height: 50px;
+    line-height: 60px;
     font-size: 1.2em;
     padding-left: 15px;
     
   }
-  nav a:hover,
-  nav a:focus,
-  nav a:active {
-    background-color: rgba(rgb(158, 68, 68), 0.3);
+  .top-bar a:hover,
+  .top-bar a:focus,
+  .top-bar a:active {
+    background-color: rgb(86, 157, 190);
 }
 /* Movies*/
 .movies-container{
@@ -227,27 +225,40 @@ footer {
     align-items: center;
 }
 
+/* AboutPage*/
+article{
+    max-width:600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.logo-container{
+    margin-top: 30px;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+
 @media (min-width: 680px){
     .btn-menu {
         display: none;
         }
-        .top-bar {
-            grid-template-columns: 1fr 390px;
-            grid-template-areas: "logo nav";
-        }
-        nav {
-            display: block;
-        }
-        nav ul {
+    .top-bar {
+        grid-template-columns: 1fr 390px;
+        grid-template-areas: "logo nav";
+    }
+    nav {
+        display: block;
+    }
+    nav ul {
         display: flex;
-        }
-        nav li {
+    }
+    nav li {
         flex: 1;
-        }
-        nav a {
+    }
+    nav a {
         padding: 0;
         text-align: center;
-        }
+    }
     .movies-container{
         display: grid;
         grid-template-columns: 1fr 1fr;

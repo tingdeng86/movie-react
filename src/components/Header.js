@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
 function Header() {
 
@@ -8,19 +8,6 @@ function Header() {
     function handleShow(){
         setNavOpen(!navOpen)
     }
-
-    // const isDesktop = (e) => {
-    //     if(e.matches){
-    //         setNavOpen(false);
-    //     }
-    // }
-    
-    // useEffect(() => {
-    //       let mediaQuery = window.matchMedia('(min-width: 680px)');
-    //       mediaQuery.addListener(isDesktop);
-    //       // this is the cleanup function to remove the listener
-    //       return () => mediaQuery.removeListener(isDesktop);
-    // }, []);
 
     return (
         <header className="top-bar" >

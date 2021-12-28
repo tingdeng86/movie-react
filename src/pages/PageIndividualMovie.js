@@ -4,8 +4,8 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { appTitle } from '../globals/globals';
 import MovieCard from '../components/MovieCard';
 import { useState } from 'react';
-import whiteHeart from '../images/heart-492.png';
-import redHeart from '../images/heart-992.png';
+import whiteHeart from '../images//heart-492.png';
+import redHeart from '../images/red-heart.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFav, deleteFav } from '../features/favSlice';
 

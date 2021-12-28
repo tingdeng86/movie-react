@@ -38,7 +38,6 @@ const PageHome = () => {
             const movies = responseJson.results.slice(0, 12)
             setItems(movies)
             setTerms(movies)
-            console.log("ss")
         } catch (e) {
             setError(e)
         }
@@ -76,10 +75,11 @@ const PageHome = () => {
     }
 
     function cancelfiltering(){
-        setValue("")      
+        setValue("") 
+        filterMovie("")    
     }
 
-    console.log(items)
+  
 
     return (
         <main>

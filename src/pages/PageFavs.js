@@ -2,8 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { appTitle } from '../globals/globals';
-import Movies from '../components/Movies';
-import redHeart from '../images/heart-992.png';
+import redHeart from '../images/red-heart.png';
 import { deleteFav } from '../features/favSlice';
 import MovieCard from '../components/MovieCard';
 import { Link } from 'react-router-dom';

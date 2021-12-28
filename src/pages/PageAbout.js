@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { appTitle } from '../globals/globals';
+import logo from '../images/logo.svg'
 
 const PageAbout = () => {
 
@@ -12,13 +13,12 @@ const PageAbout = () => {
             <section>
                 <h2>About Page</h2>
                 <article>
-                    <h2>Article 01</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit quas modi cupiditate iusto? Placeat, molestias expedita tempora error cumque similique amet natus eum nesciunt doloribus totam, incidunt ducimus dolores optio!</p>
+                    <h3>Our Story</h3>
+                    <p>This product uses the TMDb API but is not endorsed or certified by TMDb. This internal application for educational non-profit use, used mainly for learning how to use an API with React.</p>
                 </article>
-                <article>
-                    <h2>Article 02</h2>
-                    <p>Accusamus tempora assumenda laborum aliquam totam, perferendis optio delectus porro molestias odio, nostrum quidem maiores, illo impedit quod dignissimos ut eligendi. Veritatis quis ea est nisi ad accusamus et ullam.</p>
-                </article>
+               <figure className='logo-container'>
+                   <img src={logo} alt="TMDb logo" />
+               </figure>
             </section>
         </main>
     );
