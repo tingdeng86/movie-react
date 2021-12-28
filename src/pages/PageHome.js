@@ -9,6 +9,7 @@ const PageHome = () => {
 
     const [items, setItems] = useState([])
     const [terms, setTerms] = useState([])
+    const [value,setValue] = useState("")
     const [selection, setSelection] = useState("popular")
     const [baseUrl, setBaseUrl] = useState("https://api.themoviedb.org/3/movie/popular?api_key=d6441bcd0c7210bd6baec2676da16bd1")
 
@@ -17,10 +18,7 @@ const PageHome = () => {
         document.title = `${appTitle} - Home`;
     }, []);
 
-    function handleChange(e) {
-        setSelection(e.target.value)
-        setBaseUrl("https://api.themoviedb.org/3/movie/" + e.target.value + "?api_key=d6441bcd0c7210bd6baec2676da16bd1")
-    }
+   
     // useEffect(()=>{
     //     const getMovies =async () => {
     //         try {
@@ -40,16 +38,22 @@ const PageHome = () => {
             const movies = responseJson.results.slice(0, 12)
             setItems(movies)
             setTerms(movies)
+            console.log("ss")
         } catch (e) {
             setError(e)
         }
     }, [baseUrl]);
 
+    function sort(e) {
+        setSelection(e.target.value)
+        setBaseUrl("https://api.themoviedb.org/3/movie/" + e.target.value + "?api_key=d6441bcd0c7210bd6baec2676da16bd1")
+    }
+
     function createForm() {
         return (
             <div className="select-container">
-                <label htmlFor="displays">Sort by </label>
-                <select className="select-input" name="displays" id="displays" value={selection} onChange={handleChange} >
+                <label htmlFor="displays">Sort: </label>
+                <select className="select-input" name="displays" id="displays" value={selection} onChange={sort} >
                     <option value="popular">Popular</option>
                     <option value="top_rated">Top Rated</option>
                     <option value="now_playing">Now Playing</option>
@@ -62,15 +66,20 @@ const PageHome = () => {
     function filterMovie(term){
         let filteredMovies = [...items]
         if(term){
-            filteredMovies = items.filter(item=>{
+            filteredMovies = filteredMovies .filter(item=>{
                 return(
                     item.title.toLowerCase().indexOf(term.toLowerCase()) >-1
                 )
             })
         }
-        console.log(items)
         setTerms(filteredMovies)
     }
+
+    function cancelfiltering(){
+        setValue("")      
+    }
+
+    console.log(items)
 
     return (
         <main>
@@ -81,8 +90,12 @@ const PageHome = () => {
                         <div className="bar-container">
                         {createForm()}
                         <SearchBar 
-                            placeholder="search by title"
-                            onChange={(e)=>{filterMovie(e.target.value)}}
+                            placeholder="filter by title"
+                            onChange={(e)=>{filterMovie(e.target.value)
+                                            setValue(e.target.value)
+                            }}
+                            onClick={cancelfiltering}
+                            value={value}
                         />
                         </div>
                         {items.length < 1 ?

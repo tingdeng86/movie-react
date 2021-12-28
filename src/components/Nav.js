@@ -1,9 +1,9 @@
 // Nav
 import { NavLink } from 'react-router-dom';
 
-const Nav = () => {
+const Nav = ({style}) => {
     return (
-        <nav className="main-nav" >
+        <nav className="main-nav" style={style}>
             <ul>
                 <li><NavLink to="/" >Home</NavLink></li>
                 <li><NavLink to="/favourites">Favourites</NavLink></li>

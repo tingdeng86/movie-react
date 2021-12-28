@@ -1,14 +1,16 @@
-const SearchBar = ({ onChange, placeholder, onClick }) => {
+const SearchBar = ({ onChange, placeholder, onClick,value }) => {
     return (
-        <form className="search" action="/" method="get">
+        <div className="select-container" >
+            <label htmlFor="displays">Filter: </label>
                 <input
-                    className="searchInput"
+                    className="select-input"
                     type="text"
                     onChange={onChange}
                     placeholder={placeholder}
+                    value={value}
                 />
-                <button onClick={onClick} className="searchButton" type="submit">Clear</button>
-        </form>
+            <button onClick={onClick} className="searchButton" >Clear</button>
+        </div>
     );
 };
 
