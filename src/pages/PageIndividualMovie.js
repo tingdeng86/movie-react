@@ -12,8 +12,6 @@ import { addFav, deleteFav } from '../features/favSlice';
 const PageIndividualMovie = () => {
     const [error, setError] = useState(null);
     const [movie, setMovie] = useState(null)
-    // const [liked, setLiked] = useState(false)
-    // const [favourites, setFavourites] = useState([])
     const { id } = useParams();
     const favs = useSelector((state) => state.fav.favs)
     console.log(favs)
@@ -55,7 +53,9 @@ const PageIndividualMovie = () => {
                         <div>
                             <div className="top-container">
                                 <h2>{movie.title}</h2>
-                                {inFav(id, favs) === true ?
+                            </div>
+                            <MovieCard movie={movie} > 
+                            {inFav(id, favs) === true ?
                                     <button onClick={() => dispatch(deleteFav(movie))} className="fav-button">
                                         <img src={redHeart} alt="Heart" />
                                     </button> :
@@ -63,10 +63,9 @@ const PageIndividualMovie = () => {
                                         <img src={whiteHeart} alt="Heart" />
                                     </button>
                                 }
-
-                            </div>
-                            <MovieCard movie={movie} />
+                            </MovieCard>
                             <Link to="/" className="link-back-to-home">Back to Home Page</Link>
+
                         </div>
                     }
                 </section>

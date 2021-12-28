@@ -7,7 +7,7 @@ const SearchBar = ({ onChange, placeholder, onClick }) => {
                     onChange={onChange}
                     placeholder={placeholder}
                 />
-                <button className="searchButton" type="submit">Search</button>
+                <button onClick={onClick} className="searchButton" type="submit">Clear</button>
         </form>
     );
 };

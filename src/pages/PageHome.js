@@ -8,7 +8,7 @@ const PageHome = () => {
     const [error, setError] = useState(null);
 
     const [items, setItems] = useState([])
-    const [term, setTerm] = useState("")
+    const [terms, setTerms] = useState([])
     const [selection, setSelection] = useState("popular")
     const [baseUrl, setBaseUrl] = useState("https://api.themoviedb.org/3/movie/popular?api_key=d6441bcd0c7210bd6baec2676da16bd1")
 
@@ -26,8 +26,8 @@ const PageHome = () => {
     //         try {
     //             const response = await fetch(baseUrl)
     //             const responseJson = await response.json()
-    //             const moives = responseJson.results.slice(0, 12)
-    //             setItems(moives)
+    //             const movies = responseJson.results.slice(0, 12)
+    //             setItems(movies)
     //         } catch (e) {
     //             setError(e)
     //         }
@@ -37,8 +37,9 @@ const PageHome = () => {
         try {
             const response = await fetch(baseUrl)
             const responseJson = await response.json()
-            const moives = responseJson.results.slice(0, 12)
-            setItems(moives)
+            const movies = responseJson.results.slice(0, 12)
+            setItems(movies)
+            setTerms(movies)
         } catch (e) {
             setError(e)
         }
@@ -58,7 +59,7 @@ const PageHome = () => {
         )
     }
 
-    function searchMovie(term){
+    function filterMovie(term){
         let filteredMovies = [...items]
         if(term){
             filteredMovies = items.filter(item=>{
@@ -67,8 +68,8 @@ const PageHome = () => {
                 )
             })
         }
-        console.log(filteredMovies)
-        setItems(filteredMovies)
+        console.log(items)
+        setTerms(filteredMovies)
     }
 
     return (
@@ -81,12 +82,12 @@ const PageHome = () => {
                         {createForm()}
                         <SearchBar 
                             placeholder="search by title"
-                            onChange={(e)=>{searchMovie(e.target.value)}}
+                            onChange={(e)=>{filterMovie(e.target.value)}}
                         />
                         </div>
                         {items.length < 1 ?
                             <p>Fetching Movies</p> :
-                            <Movies moviesData={items} path="movie/" isLink={true}/>
+                            <Movies moviesData={terms} path="movie/" isLink={true}/>
                         }
                     </div>
                 }
