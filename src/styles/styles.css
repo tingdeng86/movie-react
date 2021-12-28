@@ -85,10 +85,11 @@ header a {
   }
   .btn-menu {
     grid-area: menu;
-    text-align: right;
+    text-align: center;
     margin-right: 15px;
     font-weight: bold;
     font-size: 1.3em;
+    line-height: 60px;
   }
   nav {
     grid-area: nav;
@@ -186,8 +187,11 @@ header a {
     padding: 20px;
     max-width: 500px;
     margin:0 auto;
+   
 }
-
+.movie-section h2{
+    margin-bottom: 20px;
+}
 .top-container{
     display: flex;
     justify-content: space-between;
