@@ -3,16 +3,20 @@ import { useState, useEffect } from 'react';
 import { appTitle } from '../globals/globals';
 import Movies from '../components/Movies';
 import SearchBar from '../components/SeachBar';
+import { useSelector,useDispatch } from 'react-redux';
+import { getMovies , setUrl,setSelection,filterMovie} from '../features/movie/movieSlice';
+import { api } from '../globals/globals';
+import { baseUrl } from '../globals/globals';
 
 const PageHome = () => {
     const [error, setError] = useState(null);
-    const [items, setItems] = useState([])
-    const [terms, setTerms] = useState([])
-    const [value, setValue] = useState("")
-    const [selection, setSelection] = useState("popular")
-    const [baseUrl, setBaseUrl] = useState("https://api.themoviedb.org/3/movie/popular?api_key=d6441bcd0c7210bd6baec2676da16bd1")
 
-
+    const selection = useSelector((state) => state.movie.section)
+    const url = useSelector((state) => state.movie.url)
+    const value = useSelector((state) => state.movie.value)
+    const filteredMovies = useSelector((state) => state.movie.filteredMovies)
+    console.log(filteredMovies)
+    const dispatch = useDispatch()
     useEffect(() => {
         document.title = `${appTitle} - Home`;
     }, []);
@@ -21,7 +25,7 @@ const PageHome = () => {
     // useEffect(()=>{
     //     const getMovies =async () => {
     //         try {
-    //             const response = await fetch(baseUrl)
+    //             const response = await fetch(url)
     //             const responseJson = await response.json()
     //             const movies = responseJson.results.slice(0, 12)
     //             setItems(movies)
@@ -29,22 +33,22 @@ const PageHome = () => {
     //             setError(e)
     //         }
     //     getMovies()
-    // },[baseUrl]);
+    // },[url]);
     useEffect(async () => {
         try {
-            const response = await fetch(baseUrl)
+            const response = await fetch(url)
             const responseJson = await response.json()
             const movies = responseJson.results.slice(0, 12)
-            setItems(movies)
-            setTerms(movies)
+            dispatch(getMovies(movies))
+            
         } catch (e) {
             setError(e)
         }
-    }, [baseUrl]);
+    }, [url]);
 
     function sort(e) {
-        setSelection(e.target.value)
-        setBaseUrl("https://api.themoviedb.org/3/movie/" + e.target.value + "?api_key=d6441bcd0c7210bd6baec2676da16bd1")
+        dispatch(setSelection(e.target.value))
+        dispatch(setUrl(baseUrl+e.target.value+api))
     }
 
     function createForm() {
@@ -61,21 +65,9 @@ const PageHome = () => {
         )
     }
 
-    function filterMovie(term){
-        let filteredMovies = [...items]
-        if(term){
-            filteredMovies = filteredMovies .filter(item=>{
-                return(
-                    item.title.toLowerCase().indexOf(term.toLowerCase()) >-1
-                )
-            })
-        }
-        setTerms(filteredMovies)
-    }
-
     function cancelfiltering(){
-        setValue("") 
-        filterMovie("")    
+        dispatch(filterMovie(""))
+          
     }
 
   
@@ -90,16 +82,16 @@ const PageHome = () => {
                         {createForm()}
                         <SearchBar 
                             placeholder="filter by title"
-                            onChange={(e)=>{filterMovie(e.target.value)
-                                            setValue(e.target.value)
+                            onChange={(e)=>{
+                                            dispatch(filterMovie(e.target.value))
                             }}
                             onClick={cancelfiltering}
                             value={value}
                         />
                         </div>
-                        {items.length < 1 ?
+                        {filteredMovies.length < 1 ?
                             <p>Fetching Movies</p> :
-                            <Movies moviesData={terms} path="movie/" isLink={true}/>
+                            <Movies moviesData={filteredMovies} path="movie/" isLink={true}/>
                         }
                     </div>
                 }
