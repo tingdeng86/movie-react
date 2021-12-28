@@ -13,8 +13,6 @@ export const favSlice = createSlice({
     initialState,
     reducers:{
         addFav:(state, action) =>{
-            console.log(state.favs)
-            console.log(action)
             state.favs = [...state.favs, action.payload]
         },
         deleteFav:(state,action) =>{

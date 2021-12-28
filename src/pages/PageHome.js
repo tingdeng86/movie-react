@@ -6,10 +6,9 @@ import SearchBar from '../components/SeachBar';
 
 const PageHome = () => {
     const [error, setError] = useState(null);
-
     const [items, setItems] = useState([])
     const [terms, setTerms] = useState([])
-    const [value,setValue] = useState("")
+    const [value, setValue] = useState("")
     const [selection, setSelection] = useState("popular")
     const [baseUrl, setBaseUrl] = useState("https://api.themoviedb.org/3/movie/popular?api_key=d6441bcd0c7210bd6baec2676da16bd1")
 

@@ -7,7 +7,7 @@ import { useState } from 'react';
 import whiteHeart from '../images//heart-492.png';
 import redHeart from '../images/red-heart.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { addFav, deleteFav } from '../features/favSlice';
+import { addFav, deleteFav } from '../features/fav/favSlice';
 
 const PageIndividualMovie = () => {
     const [error, setError] = useState(null);

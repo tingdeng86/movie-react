@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { appTitle } from '../globals/globals';
 import redHeart from '../images/red-heart.png';
-import { deleteFav } from '../features/favSlice';
+import { deleteFav } from '../features/fav/favSlice';
 import MovieCard from '../components/MovieCard';
 import { Link } from 'react-router-dom';
 
