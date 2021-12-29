@@ -11,8 +11,9 @@ import { Link } from 'react-router-dom';
 function PageFavs() {
     useEffect(() => {
         document.title = `${appTitle} - My Favourites`;
+
     }, []);
-    const favs = useSelector((state) => state.fav.favs)
+    const favs = useSelector((state) => state.fav.favs) 
     const disPatch = useDispatch()
     return (
         <main>

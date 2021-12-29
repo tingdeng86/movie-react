@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const storage = JSON.parse(localStorage.getItem("favourites"))
+
 const initialState = {
-    favs: []
+    favs: storage || []
 }
 
 function getIndex(fav, arr){
@@ -14,9 +16,11 @@ export const favSlice = createSlice({
     reducers:{
         addFav:(state, action) =>{
             state.favs = [...state.favs, action.payload]
+            localStorage.setItem("favourites", JSON.stringify(state.favs));
         },
         deleteFav:(state,action) =>{
             state.favs.splice(getIndex(action.payload, state.favs), 1)
+            localStorage.setItem("favourites", JSON.stringify(state.favs));
         }
     },
     
