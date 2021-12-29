@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { appTitle } from '../globals/globals';
 import Movies from '../components/Movies';
 import SearchBar from '../components/SeachBar';
-import { useSelector,useDispatch } from 'react-redux';
-import { getMovies , setUrl,setSelection,filterMovie} from '../features/movie/movieSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { getMovies, setUrl, setSelection, filterMovie } from '../features/movie/movieSlice';
 import { api } from '../globals/globals';
 import { baseUrl } from '../globals/globals';
 
@@ -15,40 +15,32 @@ const PageHome = () => {
     const url = useSelector((state) => state.movie.url)
     const value = useSelector((state) => state.movie.value)
     const filteredMovies = useSelector((state) => state.movie.filteredMovies)
-    console.log(filteredMovies)
+    // console.log(filteredMovies)
     const dispatch = useDispatch()
+
     useEffect(() => {
         document.title = `${appTitle} - Home`;
     }, []);
 
-   
-    // useEffect(()=>{
-    //     const getMovies =async () => {
-    //         try {
-    //             const response = await fetch(url)
-    //             const responseJson = await response.json()
-    //             const movies = responseJson.results.slice(0, 12)
-    //             setItems(movies)
-    //         } catch (e) {
-    //             setError(e)
-    //         }
-    //     getMovies()
-    // },[url]);
-    useEffect(async () => {
+    const fetchMovies = async () => {
         try {
             const response = await fetch(url)
             const responseJson = await response.json()
             const movies = responseJson.results.slice(0, 12)
             dispatch(getMovies(movies))
-            
         } catch (e) {
             setError(e)
         }
+    }
+
+    useEffect(() => {       
+        fetchMovies()
     }, [url]);
+
 
     function sort(e) {
         dispatch(setSelection(e.target.value))
-        dispatch(setUrl(baseUrl+e.target.value+api))
+        dispatch(setUrl(baseUrl + e.target.value + api))
     }
 
     function createForm() {
@@ -65,12 +57,12 @@ const PageHome = () => {
         )
     }
 
-    function cancelfiltering(){
+    function cancelfiltering() {
         dispatch(filterMovie(""))
-          
+
     }
 
-  
+
 
     return (
         <main>
@@ -79,18 +71,19 @@ const PageHome = () => {
                 {error ? <div>Error: {error.message}</div> :
                     <div>
                         <div className="bar-container">
-                        {createForm()}
-                        <SearchBar 
-                            placeholder="filter by title"
-                            onChange={(e)=>{ dispatch(filterMovie(e.target.value))
-                            }}
-                            onClick={cancelfiltering}
-                            value={value}
-                        />
+                            {createForm()}
+                            <SearchBar
+                                placeholder="filter by title"
+                                onChange={(e) => {
+                                    dispatch(filterMovie(e.target.value))
+                                }}
+                                onClick={cancelfiltering}
+                                value={value}
+                            />
                         </div>
                         {filteredMovies.length < 1 ?
                             <p>Fetching Movies</p> :
-                            <Movies moviesData={filteredMovies} path="movie/" isLink={true}/>
+                            <Movies moviesData={filteredMovies} path="movie/" isLink={true} />
                         }
                     </div>
                 }
