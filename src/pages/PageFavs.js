@@ -6,12 +6,10 @@ import redHeart from '../images/red-heart.png';
 import { deleteFav } from '../features/fav/favSlice';
 import MovieCard from '../components/MovieCard';
 import { Link } from 'react-router-dom';
-import FavButton from '../components/FavButton';
 
 function PageFavs() {
     useEffect(() => {
         document.title = `${appTitle} - My Favourites`;
-
     }, []);
     const favs = useSelector((state) => state.fav.favs)
     const dispatch = useDispatch()
@@ -27,7 +25,9 @@ function PageFavs() {
                         <div className="movies-container">
                             {favs.map(movie => <MovieCard key={movie.id} movie={movie} path={"movie/" + movie.id}>
                                 {<div className='fav-children'>
-                                    <FavButton onClick={dispatch(deleteFav(movie))} source={redHeart} />
+                                    <button onClick={() => dispatch(deleteFav(movie))} className="fav-button">
+                                        <img src={redHeart} alt="Heart" />
+                                    </button>
                                     <Link className="more-info" to={"../movie/" + movie.id} >More Info</Link>
                                 </div>}
                             </MovieCard>)

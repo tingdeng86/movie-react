@@ -8,7 +8,6 @@ import redHeart from '../images/red-heart.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFav, deleteFav } from '../features/fav/favSlice';
 import { selectMovie } from '../features/movie/movieSlice';
-import FavButton from '../components/FavButton';
 
 const PageIndividualMovie = () => {
 
@@ -17,25 +16,27 @@ const PageIndividualMovie = () => {
     const filteredMovies = useSelector((state) => state.movie.filteredMovies)
 
     console.log(favs)
+    console.log(filteredMovies)
+
     const dispatch = useDispatch()
     const movie = useSelector((state) => state.movie.selectedMovie)
-
+    function getMovie(id, arr) {
+        return arr.find(item => item.id == id)
+    }
     useEffect(() => {
         document.title = `${appTitle} - Individual Movie ${id}`;
         let found = getMovie(id, filteredMovies) || getMovie(id, favs)
         dispatch(selectMovie(found))
+       
     }, []);
+   
 
     function inFav(id, arr) {
-        console.log(id)
-        console.log(arr)
-        const index = arr.some(item => item.id == id)
-        console.log(index)
-        return index
+       
+        return arr.some(item => item.id == id)
+        
     }
-    function getMovie(id, arr) {
-        return arr.find(item => item.id == id)
-    }
+  
     if (isNaN(id) || (id % 1 !== 0) || id < 1) {
         return (
             <Navigate to="/" replace={true} />
@@ -54,8 +55,12 @@ const PageIndividualMovie = () => {
                         </div>
                         <MovieCard movie={movie} >
                             {inFav(id, favs) === true ?
-                                <FavButton onClick={dispatch(deleteFav(movie))} source={redHeart} /> :
-                                <FavButton onClick={dispatch(addFav(movie))} source={whiteHeart} /> 
+                                <button onClick={() => dispatch(deleteFav(movie))} className="fav-button">
+                                <img src={redHeart} alt="Heart" />
+                            </button> :
+                            <button onClick={() => dispatch(addFav(movie))} className="fav-button">
+                                <img src={whiteHeart} alt="Heart" />
+                            </button>
                                 }
                         </MovieCard>
                         <Link to="/" className="link-back-to-home">Back to Home Page</Link>
