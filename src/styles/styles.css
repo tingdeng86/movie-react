@@ -71,6 +71,7 @@ header a {
   .top-bar {
     background-color: rgb(92, 92, 141);
     display: grid;
+    padding: 2px;
     align-items: center;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 60px auto;
@@ -89,8 +90,10 @@ header a {
     margin-right: 15px;
     font-weight: bold;
     font-size: 1.3em;
-    line-height: 60px;
+    line-height: 64px;
   }
+
+  
   nav {
     grid-area: nav;
     display: none;
@@ -107,13 +110,39 @@ header a {
     line-height: 60px;
     font-size: 1.2em;
     padding-left: 15px;
-    
+    margin: 0 10px;
+
   }
-  .top-bar a:hover,
-  .top-bar a:focus,
-  .top-bar a:active {
-    background-color: rgb(86, 157, 190);
+/* https://codepen.io/maheshambure21/pen/QwXaRw*/
+nav.main-nav ul li a,
+nav.main-nav ul li a:after,
+nav.main-nav ul li a:before {
+    transition: all .5s;
+  }
+
+nav.main-nav ul li a:hover
+{
+  color: rgb(226, 122, 122);
 }
+nav.main-nav ul li a {
+  position: relative;
+}
+nav.main-nav ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: rgb(173, 154, 154);
+  height: 1px;
+}
+nav.main-nav ul li a:hover:after {
+  width: 100%;
+}
+
 /* Movies*/
 .movies-container{
    margin-top: 10px;   
@@ -198,7 +227,6 @@ header a {
     position: relative;
     width: 50px;
     height: 40px;
-    /* margin-top: 10px; */
     background-color: white;
     border: none;
   }
@@ -264,15 +292,11 @@ article{
     .movies-container{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    
-        
+        gap: 20px;        
     }
 }
 
 @media (min-width: 920px) {
-    
-   
     /* Movies*/
     .movies-container{
         display: grid;
