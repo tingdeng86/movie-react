@@ -21,7 +21,7 @@ function PageFavs() {
                 <div >
                     {favs.length === 0 ?
                         <p>Sorry you have no favourited movies. Return to the home page to add a
-                            favourite movie”</p> :
+                            favourite movie.</p> :
                         <div className="movies-container">
                             {favs.map(movie => <MovieCard key={movie.id} movie={movie} path={"movie/" + movie.id}>
                                 {<div className='fav-children'>

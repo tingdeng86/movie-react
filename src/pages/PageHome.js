@@ -82,7 +82,7 @@ const PageHome = () => {
                             />
                         </div>
                         {filteredMovies.length < 1 ?
-                            <p>Fetching Movies</p> :
+                            <p>No Result.</p> :
                             <Movies moviesData={filteredMovies} path="movie/" isLink={true} />
                         }
                     </div>

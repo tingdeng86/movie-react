@@ -41,8 +41,8 @@ nav a {
   margin-left: 10px;
 }
 p {
-    line-height: 1.4em;
-    font-size: 1.4em;
+    line-height: 1.2em;
+    font-size: 1.2em;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -165,7 +165,6 @@ nav.main-nav ul li a:hover:after {
 .movies-container .movie-info{
     display: block;
     flex:1;
-    min-height:13em ;
 }
 .movies-container .movie-overview{
     line-height:1.4em;
@@ -183,19 +182,20 @@ nav.main-nav ul li a:hover:after {
 }
 
   .searchButton {
-    margin-left: 15px;
+    margin-left: 10px;
     border: 1px solid #1C76D2;
     background: #1C76D2;
     padding-top: 4px;
     text-align: center;
     color: #fff;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .select-container {
-    width: 350px;
+    width: 280px;
     display: flex;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 10px;
   }
@@ -269,6 +269,13 @@ article{
 }
 
 @media (min-width: 680px){
+  p {
+    line-height: 1.4em;
+    font-size: 1.4em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+/* Nav Bar*/
     .btn-menu {
         display: none;
         }
@@ -294,6 +301,12 @@ article{
         grid-template-columns: 1fr 1fr;
         gap: 20px;        
     }
+    .movies-container .movie-info{
+      min-height:13em ;
+  }
+    .select-container{
+      width: 320px;
+    }
 }
 
 @media (min-width: 920px) {
@@ -310,6 +323,13 @@ article{
     .bar-container{
         display: flex;
         justify-content:space-between;
+    }
+    .select-container{
+      width: 380px;
+    }
+    .searchButton {
+      margin-left: 15px;
+      font-size: 20px;
     }
 
     /* Movie*/
