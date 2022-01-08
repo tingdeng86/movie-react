@@ -2,7 +2,6 @@ import noPoster from "../images/no-movie-poster.jpg";
 import { baseImageUrl } from "../globals/globals";
 import { Link } from "react-router-dom";
 
-
 function MovieCard({ movie, path, isLink = false, children}) {
     return (
         <div className="movie-card">
@@ -18,8 +17,9 @@ function MovieCard({ movie, path, isLink = false, children}) {
                 <p><b>Rating: </b>{movie.vote_average}</p>
                 <p className="movie-overview"><b>Description: </b>{movie.overview}</p>
                 {children}
+                {isLink && <Link className="more-info" to={`${path}${movie.id}` } >More Info</Link>}       
             </div>
-            {isLink && <Link className="more-info" to={`${path}${movie.id}` } >More Info</Link>}            
+                 
         </div>
     )
 }

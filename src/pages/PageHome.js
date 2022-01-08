@@ -62,8 +62,6 @@ const PageHome = () => {
 
     }
 
-
-
     return (
         <main>
             <section>

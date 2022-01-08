@@ -9,8 +9,6 @@ const initialState = {
     selectedMovie: null
 }
 
-
-
 export const movieSlice = createSlice({
     name: "movie",
     initialState,

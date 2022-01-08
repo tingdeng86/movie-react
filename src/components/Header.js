@@ -3,7 +3,6 @@ import Nav from './Nav';
 import { useState} from 'react';
 
 function Header() {
-
     const [navOpen, setNavOpen] = useState(false)
     function handleShow(){
         setNavOpen(!navOpen)

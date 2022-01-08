@@ -10,14 +10,9 @@ import { addFav, deleteFav } from '../features/fav/favSlice';
 import { selectMovie } from '../features/movie/movieSlice';
 
 const PageIndividualMovie = () => {
-
     const { id } = useParams();
     const favs = useSelector((state) => state.fav.favs)
     const filteredMovies = useSelector((state) => state.movie.filteredMovies)
-
-    console.log(favs)
-    console.log(filteredMovies)
-
     const dispatch = useDispatch()
     const movie = useSelector((state) => state.movie.selectedMovie)
     function getMovie(id, arr) {
@@ -30,11 +25,8 @@ const PageIndividualMovie = () => {
        
     }, []);
    
-
-    function inFav(id, arr) {
-       
-        return arr.some(item => item.id == id)
-        
+    function inFav(id, arr) {     
+        return arr.some(item => item.id == id)     
     }
   
     if (isNaN(id) || (id % 1 !== 0) || id < 1) {
@@ -42,8 +34,6 @@ const PageIndividualMovie = () => {
             <Navigate to="/" replace={true} />
         )
     }
-
-
 
     return (
         <main>
@@ -64,7 +54,6 @@ const PageIndividualMovie = () => {
                                 }
                         </MovieCard>
                         <Link to="/" className="link-back-to-home">Back to Home Page</Link>
-
                     </div>
                 }
             </section>
