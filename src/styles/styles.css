@@ -206,6 +206,9 @@ nav.main-nav ul li a:hover:after {
    margin-bottom: 5px;
    
 }
+.movie-title{
+  font-weight:500;
+}
 .more-info{
   font-size: 1.2em;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -253,7 +256,7 @@ nav.main-nav ul li a:hover:after {
     position: relative;
     width: 50px;
     height: 40px;
-    background-color: white;
+    background-color:  rgb(248, 242, 242);
     border: none;
   }
 .fav-button img{
@@ -268,7 +271,7 @@ nav.main-nav ul li a:hover:after {
 
 /* Footer */
 footer {
-    background-color: #b3701e;
+    background-color: rgb(92, 92, 141);
     color: white;
     padding: 20px;
     text-align: center;
@@ -286,14 +289,20 @@ footer {
 /* AboutPage*/
 h3{
   color: rgb(16, 82, 82);
+  font-size: 1.6em;
 }
 article{
     max-width:420px;
     margin: 0 auto;
     text-align: center;
 }
-.logo-container{
-    
+article p{
+  line-height: 1.4em;
+    font-size: 1.4em;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.logo-container{    
     width: 60px;
     height: 60px;
     margin: 0 auto;

@@ -12,7 +12,7 @@ function MovieCard({ movie, path, isLink = false, children}) {
                 }
             </div>
             <div className="movie-info">
-                <p ><b>Title: </b>{movie.title}</p>
+                <p className="movie-title"><b>Title: </b>{movie.title}</p>
                 <p><b>Release Date: </b>{movie.release_date}</p>
                 <p><b>Rating: </b>{movie.vote_average}</p>
                 <p className="movie-overview"><b>Description: </b>{movie.overview}</p>
