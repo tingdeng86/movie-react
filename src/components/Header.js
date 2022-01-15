@@ -1,18 +1,23 @@
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
-import { useState} from 'react';
+import { useState } from 'react';
 
 function Header() {
     const [navOpen, setNavOpen] = useState(false)
-    function handleShow(){
+    function handleShow() {
         setNavOpen(!navOpen)
     }
 
     return (
         <header className="top-bar" >
             <h1><Link to='/'>Movie Mania</Link></h1>
-            <a onClick ={handleShow} href="#menu" className="btn-menu" >Menu</a>
-           <Nav style={{display: navOpen&&"block"}} />
+            <button onClick={handleShow} href="#menu" className="btn-menu">
+                <span class="button-content">
+                    <span class="text">Menu</span>
+                    <span class="bar"></span>
+                </span>
+            </button>
+            <Nav style={{ display: navOpen && "block" }} />
         </header>
     )
 }

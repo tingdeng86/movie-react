@@ -12,10 +12,10 @@ function MovieCard({ movie, path, isLink = false, children}) {
                 }
             </div>
             <div className="movie-info">
-                <p className="movie-title"><b>Title: </b>{movie.title}</p>
+                <p className="movie-title">{movie.title}</p>
                 <p><b>Release Date: </b>{movie.release_date}</p>
                 <p><b>Rating: </b>{movie.vote_average}</p>
-                <p className="movie-overview"><b>Description: </b>{movie.overview}</p>
+                <p className="movie-overview"><b>Overview: </b>{movie.overview}</p>
                 {children}
                 {isLink && <Link className="more-info" to={`${path}${movie.id}` } >More Info</Link>}       
             </div>
