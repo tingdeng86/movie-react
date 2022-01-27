@@ -10,7 +10,7 @@ function Header() {
 
     return (
         <header className="top-bar" >
-            <h1><Link to='/'>Movie Mania</Link></h1>
+            <h1><Link to='/'>Movie React</Link></h1>
             <button onClick={handleShow} href="#menu" className="btn-menu">
                 <span class="button-content">
                     <span class="text">Menu</span>

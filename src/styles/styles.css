@@ -280,8 +280,8 @@ nav.main-nav ul li a:hover:after {
 }
 .movie-card{
    background-color: rgba(black, 0.3);
-   border: 3px solid rgb(173, 154, 154);
-   padding: 20px 30px;
+   border: 3px solid rgb(197, 151, 151);
+   padding: 20px ;
    margin: 0 auto;
    margin-bottom: 16px;
    border-radius: 8px;
@@ -311,11 +311,11 @@ nav.main-nav ul li a:hover:after {
 
 .movies-container .movie-overview{
    line-height:1.2em;
-   height:2.4em;
+   height:3.6em;
    overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
-   -webkit-line-clamp: 2;
+   -webkit-line-clamp: 3;
    -webkit-box-orient: vertical;
 }
  .movie-card{
@@ -323,7 +323,7 @@ nav.main-nav ul li a:hover:after {
   width: 100%;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "poster info";
-  gap:30px;
+  gap:20px;
 }
  .movie-poster{
   grid-area: poster;   
@@ -439,7 +439,7 @@ article p{
     .movies-container{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        column-gap:30px;
+        column-gap:20px;
         row-gap: 10px;       
     }
 
@@ -456,7 +456,7 @@ article p{
       width: 100%;
       grid-template-columns: 1fr 1.2fr;
       grid-template-areas: "poster info";
-      gap:30px;
+      gap:20px;
   }
   .movie-section .movie-poster{
       grid-area: poster;   
@@ -472,7 +472,7 @@ article p{
     .movies-container{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap:20px;
+        gap:16px;
 
     }
     .movie-card{
