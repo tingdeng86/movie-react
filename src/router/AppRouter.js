@@ -1,7 +1,7 @@
 // AppRouter
 
 // Development Components
-import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 // Components
 import Header from '../components/Header';
 import Footer from '../components/Footer';

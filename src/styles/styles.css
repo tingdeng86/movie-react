@@ -26,8 +26,7 @@ font-family: 'Ubuntu', sans-serif;
 
 /* Body */
 body {
-  margin: 0;
-  
+  margin: 0;  
   font-family: "Ubuntu", sans-serif;
   min-height: 100vh;
 }
@@ -42,10 +41,10 @@ nav a {
 }
 
 p {
-    line-height: 1.2em;
-    font-size: 1.2em;
-    margin-top: 2px;
-    margin-bottom: 2px;
+  line-height: 1.4em;
+  font-size: 1.4em;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 section{
     padding:10px 20px;
@@ -69,25 +68,27 @@ h2{
     font-weight: 400;
     color: rgb(40, 57, 206);
   }
-
+/* Header */
   /* Header */
 header a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+
   }
-  .top-bar {
+
+ header{
     background-color: rgb(92, 92, 141);
     display: grid;
     padding: 2px;
     align-items: center;
     grid-template-columns: 3fr 60px;
-    grid-template-rows: 60px auto;
+    grid-template-rows: 70px auto;
     grid-template-areas:
       "logo menu"
       "nav nav";
   }
-  .top-bar h1 {
+  header h1 {
     margin-right: 20px;
     grid-area: logo;
     font-weight: bold;
@@ -98,7 +99,7 @@ header a {
     margin-right: 15px;
     font-weight: bold;
     font-size: 1.3em;
-    line-height: 64px;
+    line-height: 70px;
   }
 
   
@@ -121,16 +122,23 @@ header a {
     margin: 0 10px;
 
   }
+  .show nav {
+    transition: height 0.3s ease, visibility 0s;
+    visibility: visible;
+    /* height: 253px; */
+  	margin-top:10px;
+	  display: block;
+}
 
   /* Hamburger Styles */
-  /* .btn-menu {
+  .btn-menu {
     
     text-align: center;
    
     font-weight: bold;
     font-size: 1.3em;
     line-height: 64px;
-  } */
+  } 
 .btn-menu {
   grid-area: menu;
   margin-right: 15px;
@@ -409,16 +417,16 @@ article p{
     padding: 30px;
 }
   p {
-    line-height: 1.1em;
-    font-size: 1.1em;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    line-height: 1.2em;
+    font-size: 1.2em;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 /* Nav Bar*/
     .btn-menu {
         display: none;
         }
-    .top-bar {
+    header {
         grid-template-columns: 1fr 390px;
         grid-template-areas: "logo nav";
     }
@@ -468,6 +476,12 @@ article p{
 }
 
 @media (min-width: 1000px) {
+  p {
+    line-height: 1.3em;
+    font-size: 1.3em;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
     /* Movies*/
     .movies-container{
         display: grid;
@@ -498,8 +512,8 @@ article p{
 .movie-section p{
     line-height: 1.3em;
     font-size: 1.3em;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }  
 .movie-section link{
   margin-top: 10px;
