@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 // Pages
 import PageHome from '../pages/PageHome';
 import PageFavs from '../pages/PageFavs';
-import PageIndividualMovie from '../pages/PageIndividualMovie';
+import PageSingleMovie from '../pages/PageSingleMovie';
 import PageAbout from '../pages/PageAbout';
 import PageNotFound from '../pages/PageNotFound';
 
@@ -20,7 +20,7 @@ function AppRouter() {
             <Routes>
               <Route path="/" element={<PageHome />} />
               <Route path="/favourites" element={<PageFavs />} />
-              <Route path="/movie/:id" element={<PageIndividualMovie />} />
+              <Route path="/movie/:id" element={<PageSingleMovie />} />
               <Route path="/about" element={<PageAbout />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>

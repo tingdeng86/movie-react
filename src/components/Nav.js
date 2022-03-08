@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
 
-const Nav = ({ handleShowHideNav}) => {
-    function closeNav(e){
-        if(window.innerWidth < 680){
+
+const Nav = ({ handleShowHideNav }) => {
+    function closeNav(e) {
+        if (window.innerWidth < 576) {
             handleShowHideNav();
-        }else{
+        } else {
             e.target.blur()
         }
     }
@@ -14,9 +15,12 @@ const Nav = ({ handleShowHideNav}) => {
                 <li><NavLink to="/" >Home</NavLink></li>
                 <li><NavLink to="/favourites">Favourites</NavLink></li>
                 <li><NavLink to="/about">About</NavLink></li>
+                {/* <li><NavLink to="/about" className="search-icon-link">
+                    <FaSearch className='search-icon' />
+                </NavLink></li> */}
             </ul>
         </nav>
     );
-    
+
 };
 export default Nav;

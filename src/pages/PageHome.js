@@ -1,12 +1,15 @@
 // Page - Home
 import { useState, useEffect } from 'react';
 import { appTitle } from '../globals/globals';
-import Movies from '../components/Movies';
-import SearchBar from '../components/SeachBar';
+import FilterBar from '../components/FilterBar';
 import { useSelector, useDispatch } from 'react-redux';
 import { getMovies, setUrl, setSelection, filterMovie } from '../features/movie/movieSlice';
 import { api } from '../globals/globals';
 import { baseUrl } from '../globals/globals';
+import MovieCard from '../components/MovieCard';
+import { BsFillHeartFill } from 'react-icons/bs';
+import { BsHeart } from 'react-icons/bs';
+import { addFav, deleteFav } from '../features/fav/favSlice';
 
 const PageHome = () => {
     const [error, setError] = useState(null);
@@ -15,6 +18,7 @@ const PageHome = () => {
     const url = useSelector((state) => state.movie.url)
     const value = useSelector((state) => state.movie.value)
     const filteredMovies = useSelector((state) => state.movie.filteredMovies)
+    const favs = useSelector((state) => state.fav.favs)
     // console.log(filteredMovies)
     const dispatch = useDispatch()
 
@@ -33,7 +37,7 @@ const PageHome = () => {
         }
     }
 
-    useEffect(() => {       
+    useEffect(() => {
         fetchMovies()
     }, [url]);
 
@@ -62,15 +66,19 @@ const PageHome = () => {
 
     }
 
+    function inFav(id, arr) {
+        return arr.some(item => item.id == id)
+    }
+
     return (
         <main>
-            <section>
-                <h2>Home Page</h2>
+            <section className="home-main-section">
+                {/* <h2>Home</h2> */}
                 {error ? <div>Error: {error.message}</div> :
                     <div>
                         <div className="bar-container">
                             {createForm()}
-                            <SearchBar
+                            <FilterBar
                                 placeholder="filter by title"
                                 onChange={(e) => {
                                     dispatch(filterMovie(e.target.value))
@@ -80,12 +88,24 @@ const PageHome = () => {
                             />
                         </div>
                         {filteredMovies.length < 1 ?
-                            <p>No Result.</p> :
-                            <Movies moviesData={filteredMovies} path="movie/" isLink={true} />
+                            <div className="loading-sect">
+                                <p className="loader">No Result.</p>
+                            </div> :
+                            <div className="movies-grid">
+                                {filteredMovies.map(movie =>
+                                    <MovieCard key={movie.id} movie={movie} >
+                                        {<div className='fav-children'>
+                                            {inFav(movie.id, favs) === true ?
+                                                <BsFillHeartFill className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
+                                                <BsHeart className="white-heart" onClick={() => dispatch(addFav(movie))} />
+                                            }
+                                        </div>}
+                                    </MovieCard>)
+                                }
+                            </div>
                         }
                     </div>
                 }
-
             </section>
         </main>
     );

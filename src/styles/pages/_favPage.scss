@@ -1,0 +1,12 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.favourites-section{
+    margin: 0 auto;
+}
+.fav-children{
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 999;
+}

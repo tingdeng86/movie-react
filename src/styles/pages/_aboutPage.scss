@@ -1,0 +1,32 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+
+.about-container{
+    @include flex-layout-column-center;
+    margin: 0 auto;
+    
+
+    h3{
+        color: $site-blue;
+        font-size: 1.6em;
+    }
+    article{
+        max-width:420px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    article p{
+        line-height: 1.4em;
+        font-size: 1.4em;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        color: $light;
+    }
+    .logo-container{    
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+}

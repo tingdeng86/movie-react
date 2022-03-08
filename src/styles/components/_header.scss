@@ -1,0 +1,24 @@
+//header styles
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+header {
+  background-color: $black;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+      @include flatten;
+      margin: 0 0 0 em(20, 32);
+      line-height: 70px;
+      font-family:$heading-font;
+
+      a {
+          text-decoration: none;
+          color: white;
+      }
+  }
+}

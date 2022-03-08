@@ -1,0 +1,28 @@
+//styling for page 404
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.page-not-found-section {
+  width: 100%;
+  display: block;
+    h2 {
+      margin-top: 3.5rem;
+      font-size: 2rem;
+      color: white;
+    }
+    p{
+      color: white;
+    }
+    a {
+      display: inline-block;
+      padding: $small-spacing;
+      color: $site-orange;
+      font-weight: 600;
+      font-size: 2rem;
+      &:hover, &:focus {
+        color: $site-blue;
+      }
+
+  }
+
+}

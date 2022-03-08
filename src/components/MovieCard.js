@@ -2,26 +2,48 @@ import noPoster from "../images/no-movie-poster.jpg";
 import { baseImageUrl } from "../globals/globals";
 import { Link } from "react-router-dom";
 
-function MovieCard({ movie, path, isLink = false, children}) {
+function MovieCard({ movie, children}) {
     return (
-        <div className="movie-card">
-            <div className="movie-poster">
-                {movie.poster_path === null ?
-                    <img src={noPoster} alt="No Poster" /> :
-                    <img src={baseImageUrl + movie.poster_path} alt={movie.title} />
-                }
+        <div className="single-movie-card">
+        <div className="movie-card-content">
+          <div className="poster-wrapper">
+            {!movie.poster_path ? (
+              <img src={noPoster} alt="no poster" />
+            ) : (
+              <img src={baseImageUrl + movie.poster_path} 
+                alt={`poster of ${movie.title}`}
+              />
+            )}
+            <p className="rating-score">
+              {movie.vote_average.toFixed(1)}
+            </p>
+           {children}
+            <div className="poster-overlay">
+              <p className="hover-release-date">
+                Release Date: <br />
+                {movie.release_date ? movie.release_date : 'N/A'}
+              </p>
+              {movie.overview.length === 0 ? (
+                <p className="hover-movie-overview">
+                  Currently don't have an overview yet... Stay tune!
+                </p>
+              ) : movie.overview.length < 160? (
+                <p className="hover-movie-overview">{movie.overview}</p>
+              ) : (
+                <p className="hover-movie-overview">
+                  {movie.overview.substring(0, 160)}...
+                </p>
+              )}
+              <Link to={`/movie/${movie.id}`}>More Info</Link>
             </div>
-            <div className="movie-info">
-                <p className="movie-title">{movie.title}</p>
-                <p><b>Release Date: </b>{movie.release_date}</p>
-                <p><b>Rating: </b>{movie.vote_average}</p>
-                <p className="movie-overview"><b>Overview: </b>{movie.overview}</p>
-                {children}
-                {isLink && <Link className="more-info" to={`${path}${movie.id}` } >More Info</Link>}       
-            </div>
-                 
+          </div>
+          <Link to={`/movie/${movie.id}`}>
+            <h3>{movie.title}</h3>
+          </Link>
         </div>
-    )
-}
+      </div>
+    );
+  };
+
 
 export default MovieCard

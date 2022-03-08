@@ -1,0 +1,42 @@
+//styling for about page
+@use '../utilities/variables' as *;
+
+.about-main-section {
+  text-align: left;
+  padding: 0 $medium-spacing;
+  width: 100%;
+  line-height: 1.8;
+
+  h2 {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  p,
+  .tmdb-div {
+    max-width: 56.25rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tmdb-div {
+    margin-bottom: $base-spacing;
+  }
+
+  img.tmdb-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo {
+    font-family: $logo-font;
+  }
+
+  .logo-m {
+    color: $site-orange;
+  }
+
+  .logo-w {
+    color: $site-blue;
+  }
+}

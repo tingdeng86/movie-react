@@ -1,7 +1,7 @@
-const SearchBar = ({ onChange, placeholder, onClick,value }) => {
+const FilterBar = ({ onChange, placeholder, onClick,value }) => {
     return (
         <div className="select-container" >
-            <label htmlFor="displays">Filter: </label>
+            {/* <label htmlFor="displays">Filter: </label> */}
                 <input
                     className="select-input"
                     type="text"
@@ -14,4 +14,4 @@ const SearchBar = ({ onChange, placeholder, onClick,value }) => {
     );
 };
 
-export default SearchBar;
+export default FilterBar;
