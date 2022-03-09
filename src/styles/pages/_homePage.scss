@@ -12,7 +12,7 @@
 
 body {
   font-family: $site-font;
-  background-color: $dark-grey;
+  background-color: $black;
   line-height: $site-line-height;
 
   .wrapper {
@@ -41,7 +41,7 @@ body {
     max-width: $main-max-width;
     @include margin-center;
     flex: 1 1 auto;
-    background-color: $light-grey;
+    background-color: $black;
     display: flex;
     padding: em(20);
 

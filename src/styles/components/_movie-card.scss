@@ -4,7 +4,7 @@
 
 .single-movie-card {
   @include margin-center;
-  background-color: $dark-grey;
+  background-color: grey;
   margin-top: $base-spacing;
   margin-bottom: $base-spacing;
   padding: em(5) em(6);
@@ -17,7 +17,7 @@
   img {
     display: block;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
   }
 
   .movie-card-content {
@@ -98,25 +98,6 @@
         background-color: $site-orange;
         color: $dark-grey;
       }
-    }
-  }
-
-  .card-fav-btn {
-    position: absolute;
-    top: $small-spacing;
-    right: $small-spacing;
-    z-index: 3;
-    transition: all 0.3s;
-
-    &:hover { 
-      animation: shake 200ms infinite;
-      animation-timing-function: linear;   
-    }
-    
-    @keyframes shake {
-      0% { transform: rotate(8deg); }
-      50% { transform: rotate(-8deg); }
-      100% { transform: rotate(8deg); }
     }
   }
 

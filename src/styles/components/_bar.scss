@@ -8,6 +8,7 @@
     margin-bottom: $base-spacing;
     padding: 0 em(30);
     color: white;
+    
     @media (min-width: $breakpoint-mobile) {
         display: flex;
         flex-direction: row;
@@ -19,10 +20,11 @@
    margin-left: 10px;
    border: 1px solid $site-orange;
    background: $site-orange;
-   padding: em(6) em(8);
+   padding: em(5);
    text-align: center;
    color: #fff;
-   border-radius: 6px;
+   
+  //  border-radius: 6px;
  }
  .select-container {
     width: 280px;
@@ -34,10 +36,12 @@
   .select-input {
     margin-left: 15px; 
     flex:1; 
-    border: 3px solid #7f6991;
+    border: 1px solid #7f6991;
     padding: 5px;
-    border-radius: 8px;
+    // border-radius: 8px;
     outline: none;
     background-color: white;
+    font-family: $site-font;
+    color: black;
   }
   
