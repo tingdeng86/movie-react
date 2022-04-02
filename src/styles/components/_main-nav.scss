@@ -28,14 +28,6 @@
       font-weight: bold;
       // padding: 0 12px;
       text-align: center;
-      @at-root .main-nav li a {
-          border-top: 1px solid gray;
-      }
-      &:hover,
-      &:focus,
-      &:active {
-          background-color: rgba(white, 0.2);
-      }
   }
 
   @media (min-width: $breakpoint-mobile){
