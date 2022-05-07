@@ -6,8 +6,8 @@ import { addFav, deleteFav } from '../features/fav/favSlice';
 import SingleMovie from '../components/SingleMovie';
 import { api } from '../globals/globals';
 import { baseUrl } from '../globals/globals';
-import { BsFillHeartFill } from 'react-icons/bs';
-import { BsHeart } from 'react-icons/bs';
+import { FaHeart} from 'react-icons/fa';
+import { FaRegHeart } from 'react-icons/fa';
 
 const PageIndividualMovie = () => {
     const { id } = useParams();
@@ -49,12 +49,12 @@ const PageIndividualMovie = () => {
                                 <SingleMovie movie={movie} >
                                     {<div className='fav-button-container'>
                                         {inFav(id, favs) === true ?
-                                            <BsFillHeartFill className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
-                                            <BsHeart className="white-heart" onClick={() => dispatch(addFav(movie))} />
+                                            <FaHeart className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
+                                            <FaRegHeart className="white-heart" onClick={() => dispatch(addFav(movie))} />
                                         }
                                     </div>}
                                 </SingleMovie>
-                                <Link to="/" className="link-back-to-home">Back to Home Page</Link>
+                                <Link to="/" className="link-back-to-home">Back</Link>
                             </div> :
                             <div className="loading-sect">
                                 <p className="loader">Loading..</p>

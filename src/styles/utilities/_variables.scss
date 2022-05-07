@@ -29,7 +29,7 @@ $dark-grey: #2b2929;
 $black: #262525;
 $light: #f4f4f4;
 $light-bg: #dee2e6;
-
+$grey-color-light: lighten($dark-grey, 32);
 //common spacing
 $small-spacing: 0.5rem;
 $base-spacing: 1rem;
@@ -37,7 +37,6 @@ $medium-spacing: 1.5rem;
 $double-spacing: 2rem;
 
 //max width for <main>
-// $main-max-width: 1600px;
 $main-max-width: 1920px;
 
 //media query breakpoints

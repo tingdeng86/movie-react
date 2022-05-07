@@ -7,19 +7,17 @@ import { getMovies, setUrl, setSelection, filterMovie } from '../features/movie/
 import { api } from '../globals/globals';
 import { baseUrl } from '../globals/globals';
 import MovieCard from '../components/MovieCard';
-import { BsFillHeartFill } from 'react-icons/bs';
-import { BsHeart } from 'react-icons/bs';
+import { FaHeart} from 'react-icons/fa';
+import { FaRegHeart } from 'react-icons/fa';
 import { addFav, deleteFav } from '../features/fav/favSlice';
 
 const PageHome = () => {
     const [error, setError] = useState(null);
-
     const selection = useSelector((state) => state.movie.selection)
     const url = useSelector((state) => state.movie.url)
     const value = useSelector((state) => state.movie.value)
     const filteredMovies = useSelector((state) => state.movie.filteredMovies)
     const favs = useSelector((state) => state.fav.favs)
-    // console.log(filteredMovies)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -63,7 +61,6 @@ const PageHome = () => {
 
     function cancelfiltering() {
         dispatch(filterMovie(""))
-
     }
 
     function inFav(id, arr) {
@@ -73,7 +70,6 @@ const PageHome = () => {
     return (
         <main>
             <section className="home-main-section">
-                {/* <h2>Home</h2> */}
                 {error ? <div>Error: {error.message}</div> :
                     <div>
                         <div className="bar-container">
@@ -96,8 +92,8 @@ const PageHome = () => {
                                     <MovieCard key={movie.id} movie={movie} >
                                         {<div className='fav-children'>
                                             {inFav(movie.id, favs) === true ?
-                                                <BsFillHeartFill className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
-                                                <BsHeart className="white-heart" onClick={() => dispatch(addFav(movie))} />
+                                                <FaHeart className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
+                                                <FaRegHeart className="white-heart" onClick={() => dispatch(addFav(movie))} />
                                             }
                                         </div>}
                                     </MovieCard>)

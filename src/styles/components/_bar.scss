@@ -19,12 +19,12 @@
  .searchButton {
    margin-left: 10px;
    border: 1px solid $site-orange;
+   border-radius: 5px;
    background: $site-orange;
-   padding: em(5);
+   line-height: 35px;
    text-align: center;
    color: #fff;
-   
-  //  border-radius: 6px;
+   height: 35px;
  }
  .select-container {
     width: 280px;
@@ -37,8 +37,9 @@
     margin-left: 15px; 
     flex:1; 
     border: 1px solid #7f6991;
-    padding: 5px;
-    // border-radius: 8px;
+    padding: em(5);
+    height: 35px;
+    border-radius: 5px;
     outline: none;
     background-color: white;
     font-family: $site-font;

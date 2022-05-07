@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { appTitle } from '../globals/globals';
 import { deleteFav } from '../features/fav/favSlice';
 import MovieCard from '../components/MovieCard';
-import { BsFillHeartFill } from 'react-icons/bs';
+import { FaHeart} from 'react-icons/fa';
 
 function PageFavs() {
     useEffect(() => {
@@ -16,7 +16,7 @@ function PageFavs() {
     return (
         <main>
             <section className="favourites-section">
-                <h2>
+                <h2 className='fav-title'>
                     My Favourites
                 </h2>
                 <div >
@@ -26,7 +26,7 @@ function PageFavs() {
                         <div className="movies-grid">
                             {favs.map(movie => <MovieCard key={movie.id} movie={movie} >
                                 {<div className='fav-children'>
-                                    <BsFillHeartFill className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
+                                    <FaHeart className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
                                     {/* <Link className="more-info" to={"../movie/" + movie.id} >More Info</Link> */}
                                 </div>}
                             </MovieCard>)

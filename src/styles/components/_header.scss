@@ -12,7 +12,7 @@ header {
 
   h1 {
       @include flatten;
-      margin: 0 0 0 em(20, 32);
+      margin: 0 0 0 em(30, 32);
       line-height: 70px;
       font-family:$heading-font;
 

@@ -9,25 +9,35 @@
   overflow: hidden;
   visibility: hidden;
   transition: height 0.5s ease-in-out, visibility 0s 0.5s;
-
+  font-family:$heading-font;
   .show & {
       transition: height 0.5s ease-in-out, visibility 0s;
       visibility: visible;
       height: 210px;
+      
   }
 
   ul {
       @include flatten($is-list: true);
   }
+  &:last-child {
+    border-bottom: 1px solid rgb(204, 200, 200);
+}
   a {
-      color: $light;
-      text-decoration: none;
-      display: block;
-      line-height: 70px;
-      font-size: 1.3em;
-      font-weight: bold;
-      // padding: 0 12px;
-      text-align: center;
+    color: $light;
+    text-decoration: none;
+    display: block;
+    line-height: 70px;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid white;
+   
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: rgba(white, 0.4);
+        }
   }
 
   @media (min-width: $breakpoint-mobile){
@@ -37,7 +47,9 @@
       transition: none;
       background-color: inherit;
       margin-right: em(20);
-
+      &:last-child {
+        border-bottom: none;
+    }
       .show & {
           transition: none;
           height: auto;
@@ -53,13 +65,19 @@
       }
 
       a {
-          padding: 0;
-          text-align: center;
-          border-top:  none;
-          border: none;
-          position: relative;
-          color: dark;
-          line-height: 70px;
+        padding: 0;
+        text-align: center;
+        border-top:  none;
+        border: none;
+        position: relative;
+        color: dark;
+        line-height: 70px;
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $dark-grey;
+        }
+
       }
       a.active {
           color: $site-orange;
