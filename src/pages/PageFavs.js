@@ -27,7 +27,6 @@ function PageFavs() {
                             {favs.map(movie => <MovieCard key={movie.id} movie={movie} >
                                 {<div className='fav-children'>
                                     <FaHeart className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
-                                    {/* <Link className="more-info" to={"../movie/" + movie.id} >More Info</Link> */}
                                 </div>}
                             </MovieCard>)
                             }

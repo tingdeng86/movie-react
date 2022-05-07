@@ -78,9 +78,11 @@
         text-align: left;
         margin: 0.5rem;
       }
-
-      @media (min-width: 1600px) {
-        font-size: 0.95rem;
+      @media (min-width: $breakpoint-desktop) {
+        font-size: 0.9rem;
+      }
+      @media (min-width: $breakpoint-desktop-lg) {
+        font-size: 1.1rem;
         &.hover-movie-overview {
           margin: 0.8rem;
         }

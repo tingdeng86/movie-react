@@ -13,7 +13,6 @@ const PageIndividualMovie = () => {
     const { id } = useParams();
     const favs = useSelector((state) => state.fav.favs)
     const dispatch = useDispatch()
-    // const movie = useSelector((state) => state.movie.selectedMovie)
     const [movie, setMovie] = useState(null)
     const [error, setError] = useState(null);
 

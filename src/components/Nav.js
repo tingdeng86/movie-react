@@ -15,9 +15,6 @@ const Nav = ({ handleShowHideNav }) => {
                 <li><NavLink to="/" >Home</NavLink></li>
                 <li><NavLink to="/favourites">Favourites</NavLink></li>
                 <li><NavLink to="/about">About</NavLink></li>
-                {/* <li><NavLink to="/about" className="search-icon-link">
-                    <FaSearch className='search-icon' />
-                </NavLink></li> */}
             </ul>
         </nav>
     );
